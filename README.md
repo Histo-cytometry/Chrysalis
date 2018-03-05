@@ -1,7 +1,7 @@
 # Welcome to the Chrysalis Software Page
 
 
-Chrysalis processes 3D images, like those acquired on confocal or epifluorescence microscopes, as well as two-photon movies (3D images + time) to prepare the images for further analysis in Imaris or ImageJ. 
+Chrysalis processes 3D images, like those acquired on confocal or epi-fluorescence microscopes, as well as two-photon movies (3D images + time) to prepare the images for further analysis in Imaris or ImageJ. 
 
 Additionally, we have created the GenerateCompensationMatrix script. This script is run in Fiji and used with single color control images to generate a compensation matrix. This compensation matrix can then be used by Chrysalis to spectrally unmix images.
 
