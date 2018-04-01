@@ -43,13 +43,25 @@ else
   vImarisApplication = aImarisApplicationID;
 end
 
+import java.util.Properties;
+import java.io.FileReader;
+
+% Finds out where the current m file is
+baseFolder = fileparts(which(mfilename));
+
+% Reads the property file from the same directory of the m file
+propertyFilename = fullfile(baseFolder,'chrysalis.properties');
+p = Properties; 
+p.load(FileReader(propertyFilename)); 
+
+% Read the property
+outputPath = p.getProperty('outputPath');
+
 vImarisDataSet = vImarisApplication.GetDataSet.Clone;
 
 %Convert dataset to 32bit float
 vFloatType = vImarisDataSet.GetType.eTypeFloat;
 vImarisDataSet.SetType(vFloatType);
-
-
 
 % the user has to create a scene with some surfaces
 vSurpassScene = vImarisApplication.GetSurpassScene;
@@ -139,7 +151,7 @@ vImarisApplication.SetDataSet(vImarisDataSet);
 vFileNameString = vImarisApplication.GetCurrentFileName; % returns ‘C:/Imaris/Images/retina.ims’
 vFileName = char(vFileNameString);
 [vOldFolder, vName, vExt] = fileparts(vFileName); % returns [‘C:/Imaris/Images/’, ‘retina’, ‘.ims’]
-vNewFileName = fullfile('f:/BitplaneBatchOutput', [vName, vExt]); % returns ‘c:/BitplaneBatchOutput/retina.ims’
+vNewFileName = fullfile('outputPath', [vName, vExt]); % returns ‘c:/BitplaneBatchOutput/retina.ims’
 vImarisApplication.FileSave(vNewFileName, '');
 
 %%

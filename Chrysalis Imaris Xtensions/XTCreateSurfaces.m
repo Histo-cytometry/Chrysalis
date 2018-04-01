@@ -50,6 +50,20 @@ if isempty(vImarisApplication)
     error('Could not connect to Imaris!')
 end
 
+import java.util.Properties;
+import java.io.FileReader;
+
+% Finds out where the current m file is
+baseFolder = fileparts(which(mfilename));
+
+% Reads the property file from the same directory of the m file
+propertyFilename = fullfile(baseFolder,'chrysalis.properties');
+p = Properties; 
+p.load(FileReader(propertyFilename)); 
+
+% Read the property
+outputPath = p.getProperty('outputPath');
+
 %% Open the corresponding .mat file with the regions
 filepath = char(vImarisApplication.GetCurrentFileName);
 
@@ -115,7 +129,7 @@ end
 vFileNameString = vImarisApplication.GetCurrentFileName; % returns ‘C:/Imaris/Images/retina.ims’
 vFileName = char(vFileNameString);
 [vOldFolder, vName, vExt] = fileparts(vFileName); % returns [‘C:/Imaris/Images/’, ‘retina’, ‘.ims’]
-vNewFileName = fullfile('f:/BitplaneBatchOutput', [vName, vExt]); % returns ‘c:/BitplaneBatchOutput/retina.ims’
+vNewFileName = fullfile('outputPath', [vName, vExt]); % returns ‘c:/BitplaneBatchOutput/retina.ims’
 vImarisApplication.FileSave(vNewFileName, '');
 end
 
