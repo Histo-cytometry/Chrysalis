@@ -1,0 +1,68 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="3532094566" file="/Users/DmitriKotov/Documents/Chrysalis/Chrysalis/Chrysalis.prj" location="/Users/DmitriKotov/Documents/Chrysalis/Chrysalis" name="Chrysalis" target="target.mlapps" target-name="Package App">
+    <param.appname>Chrysalis</param.appname>
+    <param.authnamewatermark>Dmitri Kotov</param.authnamewatermark>
+    <param.email>kotov003@umn.edu</param.email>
+    <param.company>University of Minnesota</param.company>
+    <param.icon />
+    <param.icons />
+    <param.summary>Chrysalis is an image processing software that expedites histo-cytometry analysis of 3D images and movies.</param.summary>
+    <param.description>Chrysalis processes 3D images, like those acquired on confocal or epi-fluorescence microscopes, as well as two-photon movies (3D images + time) to prepare the images for further analysis in Imaris or ImageJ.</param.description>
+    <param.screenshot>/Users/DmitriKotov/Documents/Chrysalis/Resources/Splash Screen.png</param.screenshot>
+    <param.version>1.0</param.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.output>/Users/DmitriKotov/Documents/Chrysalis/Chrysalis</param.output>
+    <param.guid>8274aa5d-603a-473c-9a65-301aff2a1156</param.guid>
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.version />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/Chrysalis.m</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}/Chrysalis.fig</file>
+      <file>${PROJECT_ROOT}/doMath_noDipImage.m</file>
+      <file>${PROJECT_ROOT}/our_triangle.m</file>
+      <file>${PROJECT_ROOT}/unmixing.m</file>
+      <file>${PROJECT_ROOT}/writeBigDataXML.m</file>
+    </fileset.depfun>
+    <fileset.resources>
+      <file>/Users/DmitriKotov/Documents/Chrysalis/Resources</file>
+      <file>/Users/DmitriKotov/Documents/bfmatlab</file>
+    </fileset.resources>
+    <fileset.package />
+    <build-deliverables>
+      <file location="/Users/DmitriKotov/Documents/Chrysalis" name="Chrysalis" optional="false">/Users/DmitriKotov/Documents/Chrysalis/Chrysalis</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/Applications/MATLAB_R2017a.app</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>true</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.12.6</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>maci64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
