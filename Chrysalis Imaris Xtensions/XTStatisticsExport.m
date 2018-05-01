@@ -15,8 +15,8 @@ else
   vImarisApplication = aImarisApplicationID;
 end
 
-import java.util.Properties;
-import java.io.FileReader;
+import java.util.Properties
+import java.io.FileReader
 
 % Finds out where the current m file is
 baseFolder = fileparts(which(mfilename));
@@ -28,11 +28,12 @@ p.load(FileReader(propertyFilename));
 
 % Read the property
 outputPath = p.getProperty('outputPath');
+convertedPath = char(outputPath);
 
 vFileNameString = vImarisApplication.GetCurrentFileName; % returns ‘C:/Imaris/Images/retina.ims’
 vFileName = char(vFileNameString);
 [vOldFolder, vName, vExt] = fileparts(vFileName); % returns [‘C:/Imaris/Images/’, ‘retina’, ‘.ims’]
-vNewFileName = fullfile('outputPath', [vName, vExt]); % returns ‘c:/BitplaneBatchOutput/retina.ims’
+vNewFileName = fullfile(convertedPath, [vName, vExt]); % returns ‘c:/BitplaneBatchOutput/retina.ims’
 
 %%%%%% Export all stats for surfaces starting with TCR
 saveTable(vImarisApplication, vNewFileName, offset);

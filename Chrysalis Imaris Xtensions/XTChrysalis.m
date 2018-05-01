@@ -65,6 +65,7 @@ p.load(FileReader(propertyFilename));
 
 % Read the property
 outputPath = p.getProperty('outputPath');
+convertedPath = char(outputPath);
 
 vImarisDataSet = vImarisApplication.GetDataSet.Clone;
 
@@ -144,7 +145,7 @@ else
     scalef = [];
 end
 
-vNewFileName = doDistTransformAndSave(vImarisApplication, vImarisDataSet, todo);
+vNewFileName = doDistTransformAndSave(vImarisApplication, vImarisDataSet, todo, convertedPath);
 
 %%%%%% Export all stats for surfaces starting with TCR
 saveTable(vImarisApplication, 'TCR', vNewFileName, offset, scalef, vNonDistanceChannels);
@@ -246,7 +247,7 @@ end
 
 end
 
-function vNewFileName = doDistTransformAndSave(vImarisApplication, vImarisDataSet, todo)
+function vNewFileName = doDistTransformAndSave(vImarisApplication, vImarisDataSet, todo, convertedPath)
 
 vProgressDisplay = waitbar(0, 'Distance Transform: Preparation');
 for vSurfaces_i=1:length(todo)
@@ -302,7 +303,7 @@ vImarisApplication.SetDataSet(vImarisDataSet);
 vFileNameString = vImarisApplication.GetCurrentFileName; % returns ‘C:/Imaris/Images/retina.ims’
 vFileName = char(vFileNameString);
 [vOldFolder, vName, vExt] = fileparts(vFileName); % returns [‘C:/Imaris/Images/’, ‘retina’, ‘.ims’]
-vNewFileName = fullfile('outputPath', [vName, vExt]); % returns ‘c:/BitplaneBatchOutput/retina.ims’
+vNewFileName = fullfile(convertedPath, [vName, vExt]); % returns ‘c:/BitplaneBatchOutput/retina.ims’
 
 %%
 
