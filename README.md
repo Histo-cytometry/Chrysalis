@@ -7,6 +7,9 @@ Additionally, we have created the GenerateCompensationMatrix script. This script
 
 We have also created a group of Imaris Xtensions. These Xtensions aid in quantitative, multispectral image analysis in Imaris for 3D images and movies. Additionally, many of these Xtensions are intended for batch processing images. This batch functionality allows for the batching of histo-cytometry analysis, thereby greatly speeding up the histo-cytometry workflow.
 
+The publication describing automation of histo-cytometry analysis with Chrysalis is here: http://www.jimmunol.org/content/202/1/300
+
+Videos demonstrating how to use this code is available here: https://www.youtube.com/channel/UCvHIV4KcB83j_oB5rbHA65w
 
 ## Chrysalis Features
 
